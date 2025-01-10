@@ -5,7 +5,8 @@
 ***linear models***
 When we fit some data using a polynomial function of the form:
 $$y(x, \mathbf{w}) = w_0 + w_1x + w_2x^2 + ... + w_Mx^M = \sum_{j=0}^M w_jx^j$$
-where $M$ is the *order* of the polynomial, and $x_j$ denotes $x$ raised to the power of $j$.
+
+, where $M$ is the *order* of the polynomial, and $x_j$ denotes $x$ raised to the power of $j$.
 Although the polynomial function $y(x, \mathbf{w})$ is a nonlinear function of $x$, it is a linear function of the coefficients $\mathbf{w}$.
 
 Functions, such as this polynomial, that are linear in the unknown parameters have important properties, as well as significant limitations, and are called linear models.
