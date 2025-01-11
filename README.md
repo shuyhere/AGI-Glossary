@@ -60,6 +60,8 @@ where $y_\ell(\boldsymbol{x})=y(\boldsymbol{x};\boldsymbol{\theta}_\ell)$ is the
 
 This is the key idea behind deep neural networks or DNNs, which includes common variants such as convolutional neural networks (CNNs) for images, and recurrent neural networks (RNNs) for sequences.
 
+***No free lunch theorem***
+There is no single best model that works optimally for all kinds of problems. The reason is that a set of assumptions (also called inductive bias) that works well in one domain may work poorly in another.
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
