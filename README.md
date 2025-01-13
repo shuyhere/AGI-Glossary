@@ -28,7 +28,7 @@ $$y(\boldsymbol{x};\boldsymbol{\theta})=b+\boldsymbol{w}^\mathsf{T}\boldsymbol{x
 where $\boldsymbol{\theta} = (b, \boldsymbol{w})$ are the parameters of the model, this model is called logistic regression.
 In statistics, the $\boldsymbol{w}$ parameters are usually called regression coefficients (and are typically denoted by $\beta$ ) and $b$ is called the intercept. In ML, the parameters $\boldsymbol{w}$ are called the *weights* and $b$ is called the *bias*.
 
-***Maximum likelihood estimation***
+***maximum likelihood estimation***
 The intuition is that a good model (with low loss) is one that assigns a high probability to the true output $y$ for each corresponding input $\boldsymbol{x}$. The average negative log probability of the training set is given by
 
 $$\text{NLL}(\boldsymbol{\theta}) = -\frac{1}{N}\sum_{i=1}^N\log p(y_i|\boldsymbol{x}_i;\boldsymbol{\theta})$$
@@ -40,11 +40,11 @@ $$\hat{\boldsymbol{\theta}} = \arg\min_{\boldsymbol{\theta}}\text{NLL}(\boldsymb
 
 This is a very common way to fit models to data.
 
-***Regression***
+***regression***
 Now suppose that we want to predict a real-valued quantity $y\in\mathbb{R}$ instead of a class label $y \in \{1, \ldots, C\}$; this is known as *regression*.
 
 
-***Deep neural networks***
+***deep neural networks***
 We can create much more powerful models by learning to do nonlinear *feature extraction* (for example, $\boldsymbol{\phi}(\boldsymbol{x})=[1,x_1,x_2,x_1^2,x_2^2,\ldots]$ ) automatically.
 
 If we let $\boldsymbol{\phi}(\boldsymbol{x})$ have its own set of parameters, say $\mathbf{V}$, then the overall model has the form
@@ -60,8 +60,17 @@ where $y_\ell(\boldsymbol{x})=y(\boldsymbol{x};\boldsymbol{\theta}_\ell)$ is the
 
 This is the key idea behind deep neural networks or DNNs, which includes common variants such as convolutional neural networks (CNNs) for images, and recurrent neural networks (RNNs) for sequences.
 
-***No free lunch theorem***
+***no free lunch theorem***
 There is no single best model that works optimally for all kinds of problems. The reason is that a set of assumptions (also called inductive bias) that works well in one domain may work poorly in another.
+
+***unsupervised learning***
+From a probabilistic perspective, we can view the task of unsupervised learning as fitting an unconditional model of the form $p(\boldsymbol{x})$, which can generate new data $\boldsymbol{x}$, whereas supervised learning involves fitting a conditional model, $p(\boldsymbol{y}|\boldsymbol{x})$, which specifies (a distribution over) outputs given inputs.
+
+Unsupervised learning forces the model to “explain” the *high-dimensional* inputs, rather than just the low-dimensional outputs. This allows us to learn richer models of “how the world works”.
+
+***clustering***
+A simple example of unsupervised learning is the problem of finding clusters in data. The goal is to partition the input into regions that contain “similar” points.
+
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
