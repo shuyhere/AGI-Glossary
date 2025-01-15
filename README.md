@@ -71,7 +71,29 @@ Unsupervised learning forces the model to “explain” the *high-dimensional* i
 ***clustering***
 A simple example of unsupervised learning is the problem of finding clusters in data. The goal is to partition the input into regions that contain “similar” points.
 
+***self-supervised learning***
+A recently popular approach to unsupervised learning is known as self-supervised learning. In this approach, we create *proxy supervised* tasks from unlabeled data. This avoids the hard problem of trying to infer the “true latent factors” $\mathbb{z}$ behind the observed data.
+
+***evaluating unsupervised learning***
+It is very hard to evaluate the quality of the output of an unsupervised learning method, because there is *no ground truth* to compare to. A common method for evaluating unsupervised models is to measure the probability assigned by the model to unseen test examples.
+We can do this by computing the *(unconditional) negative log likelihood* of the data:
+$$\mathcal{L}(\boldsymbol{\theta};\mathcal{D})=-\frac{1}{|\mathcal{D}|}\sum_{\boldsymbol{x}\in\mathcal{D}}\log p(\boldsymbol{x}|\boldsymbol{\theta})$$
+
+This treats the problem of unsupervised learning as one of *density estimation*. The idea is that a good model will not be “surprised” by actual data samples (i.e., will assign them high probability).
+Thus the model has learned to capture the *typical patterns* in the data. This can be used inside of a *data compression* algorithm.
+
+An alternative evaluation metric is to use the learned unsupervised representation as features or input to a downstream supervised learning method.
+
+We can increase the sample efficiency of learning (i.e., reduce the number of labeled examples needed to get good performance) by first learning a good representation.
+
+Increased sample efficiency is a useful evaluation metric, but in many applications, especially in science, the goal of unsupervised learning is to gain understanding, not to improve performance on some prediction task. This requires the use of models that are **interpretable**, but which can also generate or “explain” most of the observed patterns in the data. To paraphrase Plato, the goal is to discover how to “carve nature at its joints”. Of course, evaluating whether we have successfully discovered the true underlying structure behind some dataset often requires performing experiments and thus interacting with the world.
+
+**reinforcement learning (RL)**
+The system or agent has to learn how to interact with its environment.
+This can be encoded by means of a *policy* $\boldsymbol{a}=\pi(\boldsymbol{x})$, which specifies which action to take in response to each possible input $\boldsymbol{x}$ (derived from the environment state).
+
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
 Probabilistic Machine Learning: An Introduction”. Online version. November 23, 2024
+
