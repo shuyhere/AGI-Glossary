@@ -92,6 +92,32 @@ Increased sample efficiency is a useful evaluation metric, but in many applicati
 The system or agent has to learn how to interact with its environment.
 This can be encoded by means of a *policy* $\boldsymbol{a}=\pi(\boldsymbol{x})$, which specifies which action to take in response to each possible input $\boldsymbol{x}$ (derived from the environment state).
 
+**one-hot encoding or dummy encoding** 
+If a variable $x$ has $K$ possible values, we will denote its dummy encoding as follows: 
+$$\text{one-hot}(x) = [\mathbb{I}(x = 1), \ldots, \mathbb{I}(x = K)]$$
+
+**bag of words model**
+A simple approach to dealing with variable-length text documents is to interpret them as *a bag of words*, in which we ignore word order. To convert this to a vector from a fixed input space, we first *map each word to a token from some vocabulary*.
+* **stop word removal** dropping punctuation, converting all words to lower case; dropping common but uninformative words, such as “and” and “the”
+* **stemming** replacing words with their base form, such as replacing “running” and “runs” with “run”
+
+**TF-IDF**
+One problem with representing documents as word count vectors is that frequent words may have undue influence, just *because the magnitude of their word count is higher, even if they do not carry much semantic content.*
+
+To reduce the impact of words that occur many times in general (across all documents), we compute a quantity called the inverse document frequency, or **IDF**:
+$\mathrm{IDF}_i\triangleq\log\frac{N}{1+\mathrm{DF}_i}$, where $\mathrm{DF}_i$ is the number of documents that contain word $i$ and $N$ is the total number of documents.
+
+We can combine these transformations to compute the TF-IDF matrix as follows:
+$$\mathrm{TFIDF}_{ij}=\mathrm{TF}_{ij}\times\mathrm{IDF}_i$$
+, where $\mathrm{TF}_{ij}$ is the frequency of word $i$ in document $j$.
+
+**word embeddings**
+TFIDF does not solve the fundamental problem with the one-hot encoding (from which count vectors are derived), which is that that semantically similar words, such as “man” and “woman”, may be not be any closer (in vector space) than semantically dissimilar words, such as “man” and “banana”.
+The standard way to solve this problem is to use word embeddings, in which we map each sparse one-hot vector, $x_{nt} \in \{0,1\}^{V}$ ,to a lower-dimensional dense vector $\mathbf{e}_{nt} \in \mathbb{R}^K$, using $\mathbf{e}_{nt} = \mathbf{E}x_{nt}$, where $\mathbf{E} \in \mathbb{R}^{V \times K}$ is learned such that *semantically similar words are placed close by.*
+
+**out of vocabulary or OOV**
+At test time, the model may encounter a completely novel word that it has not seen before.
+It is better to leverage the fact that words have substructure, and then to take as input **subword units** or **wordpieces**; these are often created using a method called **byte-pair encoding**.
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
