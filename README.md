@@ -118,6 +118,11 @@ The standard way to solve this problem is to use word embeddings, in which we ma
 **out of vocabulary or OOV**
 At test time, the model may encounter a completely novel word that it has not seen before.
 It is better to leverage the fact that words have substructure, and then to take as input **subword units** or **wordpieces**; these are often created using a method called **byte-pair encoding**.
+
+**reward hacking**
+When designing such ml systems, it can be hard to design a loss function that correctly specifies all of our preferences; this can result in “reward hacking” in which the machine optimizes the reward function we give it, but then we realize that the function did not capture various constraints or preferences that we forgot to specify.
+**augmented intelligence**
+AI is a process for creating “smart tools”, like adaptive cruise control or auto-complete in search engines; such tools maintain a human in the decision-making loop. Of course, as the AI tools become more powerful, they can end up doing more and more on their own, making this approach similar to AGI. However, in augmented intelligence, the goal is not to emulate or exceed human behavior at certain tasks, but instead to help humans get stuff done more easily; this is how we treat most other technologies.
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
