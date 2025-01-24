@@ -121,8 +121,18 @@ It is better to leverage the fact that words have substructure, and then to take
 
 **reward hacking**
 When designing such ml systems, it can be hard to design a loss function that correctly specifies all of our preferences; this can result in “reward hacking” in which the machine optimizes the reward function we give it, but then we realize that the function did not capture various constraints or preferences that we forgot to specify.
+
 **augmented intelligence**
 AI is a process for creating “smart tools”, like adaptive cruise control or auto-complete in search engines; such tools maintain a human in the decision-making loop. Of course, as the AI tools become more powerful, they can end up doing more and more on their own, making this approach similar to AGI. However, in augmented intelligence, the goal is not to emulate or exceed human behavior at certain tasks, but instead to help humans get stuff done more easily; this is how we treat most other technologies.
+
+**two different interpretations of probability**
+* **frequentist** interpretation, which views probability as the limit of the **frequency** of an event as the number of trials goes to infinity.
+* **Bayesian** interpretation, in this view, probability is used to quantify our uncertainty or ignorance about something; hence it is fundamentally related to **information** rather than repeated trials.
+
+**two types of uncertainty**
+* **epistemic uncertainty (model uncertainty)** due to our ignorance of the underlying hidden causes or mechanism generating our **data**.
+* **aleatoric uncertainty (data uncertainty)** arises from intrinsic variability, which cannot be reduced even if we collect more data. For example, consider tossing a fair coin. We might know for sure that the probability of heads is $p = 0.5$, so there is no epistemic uncertainty, but we still cannot perfectly predict the outcome.
+
 # Reference
 C. M. Bishop, H. Bishop, Deep Learning, https://doi.org/10.1007/978-3-031-45468-4_1
 
